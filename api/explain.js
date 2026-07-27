@@ -2,7 +2,7 @@
 // Body: { topic: string, course?: string, notes: string, triedStyles?: string[] }
 // Returns: { style: string, explanation: string }
 //
-// This function calls the Google Gemini API (gemini-3.5-flash-lite) using a
+// This function calls the Google Gemini API (gemini-3.5-flash) using a
 // system prompt written for this project. It picks the next explanation
 // style the student hasn't seen yet for this exact confusion, and asks
 // the model to explain their specific sticking point using only that style.
