@@ -12,7 +12,7 @@ When you're studying, you inevitably hit concepts that don't click the first tim
 
 ## b. Live URL
 
-🔗 **[REPLACE WITH YOUR DEPLOYED VERCEL URL]**
+🔗 🔗 https://confusion-log2.vercel.app
 
 ## c. Features
 
@@ -62,7 +62,7 @@ The style to use for each request is chosen server-side (`api/explain.js`) by wa
 
 - **Frontend:** plain HTML, CSS, and vanilla JavaScript — no framework, no build step
 - **Backend:** a single Vercel serverless function (Node.js) at `api/explain.js`
-- **AI model:** Google **Gemini 2.5 Flash** via the Gemini API (`generateContent`), called directly with `fetch` — no SDK dependency
+- **AI model:** Google **Gemini 3.5 Flash** via the Gemini API (`generateContent`), called directly with `fetch` — no SDK dependency
 - **Storage:** browser `localStorage` (no database)
 - **Hosting/deployment:** Vercel
 - **Version control:** GitHub
@@ -70,7 +70,6 @@ The style to use for each request is chosen server-side (`api/explain.js`) by wa
 
 ## f. Screenshots
 
-_Add at least 3 screenshots below once your app is running (locally or live). See "How to run" for exactly how to capture them._
 
 1. **The main log view** — `[ADD SCREENSHOT: screenshots/01-log-view.png]`
 2. **Adding a new confusion** — `[ADD SCREENSHOT: screenshots/02-add-entry.png]`
@@ -109,4 +108,4 @@ The page will load and you can add/browse entries, but the **"Explain it differe
 
 ---
 
-Built as an individual final project. Original idea, code, and AI prompt design by **[YOUR NAME]**.
+Built as an individual final project. Original idea, code, and AI prompt design by **RUKHSAR HASSAN**.
