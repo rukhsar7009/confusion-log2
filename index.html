@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Confusion Log — explain it a different way</title>
+<meta name="description" content="Log the things that confused you in class. Get a fresh AI explanation every time you revisit — never the same angle twice." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="wordmark-block">
+        <h1 class="wordmark">Confusion&nbsp;Log</h1>
+        <p class="tagline">Write down what didn't click. Come back later and get it explained a new way.</p>
+      </div>
+      <div class="stats" id="stats" aria-live="polite">
+        <div class="stat">
+          <span class="stat-num" id="stat-open">0</span>
+          <span class="stat-label">still foggy</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" id="stat-resolved">0</span>
+          <span class="stat-label">clicked</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="add-panel" aria-labelledby="add-heading">
+      <h2 id="add-heading">Log something that confused you</h2>
+      <form id="add-form" novalidate>
+        <div class="field">
+          <label for="topic">What's the concept? <span class="req">*</span></label>
+          <input type="text" id="topic" name="topic" placeholder="e.g. recursion base cases" maxlength="120" required />
+        </div>
+        <div class="field">
+          <label for="course">Course / subject <span class="optional">(optional)</span></label>
+          <input type="text" id="course" name="course" placeholder="e.g. CS201" maxlength="60" />
+        </div>
+        <div class="field">
+          <label for="notes">What specifically didn't make sense? <span class="req">*</span></label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Be specific — this is what the AI tutor will actually respond to." maxlength="600" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add to the log</button>
+      </form>
+    </section>
+
+    <section class="list-section">
+      <div class="list-header">
+        <div class="tabs" role="tablist" aria-label="Filter entries">
+          <button class="tab is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="tab" data-filter="open" role="tab" aria-selected="false">Still foggy</button>
+          <button class="tab" data-filter="resolved" role="tab" aria-selected="false">Clicked</button>
+        </div>
+        <select id="course-filter" aria-label="Filter by course">
+          <option value="">All courses</option>
+        </select>
+      </div>
+
+      <div id="entries-list" class="entries"></div>
+
+      <p id="empty-state" class="empty-state" hidden>
+        Nothing logged yet — add the first thing that confused you today.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Your entries live only in this browser (localStorage) — nothing is sent anywhere except the one concept you ask the AI tutor to re-explain.</p>
+  </footer>
+
+  <!-- Entry detail modal -->
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-topic">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-head">
+        <p class="modal-course" id="modal-course"></p>
+        <h3 id="modal-topic"></h3>
+        <p class="modal-notes" id="modal-notes"></p>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="explain-btn">Explain it differently</button>
+        <button class="btn btn-ghost" id="resolve-btn">It clicked ✓</button>
+        <button class="btn btn-ghost" id="reopen-btn" hidden>Reopen — still foggy</button>
+        <button class="btn btn-danger" id="delete-btn">Delete</button>
+      </div>
+
+      <p class="ai-error" id="ai-error" hidden></p>
+
+      <div class="explanations" id="explanations-list">
+        <p class="no-explanations" id="no-explanations">No explanations yet — click "Explain it differently" to get your first one.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

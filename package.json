@@ -1,0 +1,9 @@
+{
+  "name": "confusion-log",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Log what confused you in class and get it explained a new way every time you revisit it.",
+  "engines": {
+    "node": ">=18"
+  }
+}
